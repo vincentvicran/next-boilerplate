@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
+import { Loader } from "src/common";
 
 import "src/sass/main.scss";
 
 // import { Inter } from "next/font/google";
 // const inter = Inter({ subsets: ["latin"] });
-
-import localFont from "next/font/local";
 
 // Font files can be colocated inside of `app`
 const myFont = localFont({
@@ -25,6 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <Loader />
       <body className={myFont.className}>{children}</body>
     </html>
   );
