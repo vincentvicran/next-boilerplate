@@ -1,44 +1,44 @@
-import * as React from 'react'
+import * as React from "react";
 
-type MeasurementValue = number | Array<number>
+type MeasurementValue = number | Array<number>;
 
 type MeasurementType = {
-  left: MeasurementValue
-  top: MeasurementValue
-  width: MeasurementValue
-  height: MeasurementValue
-  vLeft: MeasurementValue
-  vTop: MeasurementValue
-}
+  left: MeasurementValue;
+  top: MeasurementValue;
+  width: MeasurementValue;
+  height: MeasurementValue;
+  vLeft: MeasurementValue;
+  vTop: MeasurementValue;
+};
 
 export function useMeasure(
   callback: (event: MeasurementType) => void,
-  deps?: React.DependencyList,
+  deps?: React.DependencyList
 ) {
-  const ref = React.useRef(null)
-  const elementRefs = React.useRef([])
-  const callbackRef = React.useRef<(event: MeasurementType) => void>(callback)
+  const ref = React.useRef(null);
+  const elementRefs = React.useRef([]);
+  const callbackRef = React.useRef<(event: MeasurementType) => void>(callback);
 
   // Reinitiate callback when dependency change
   React.useEffect(() => {
-    callbackRef.current = callback
+    callbackRef.current = callback;
 
     return () => {
-      callbackRef.current = () => false
-    }
-  }, deps)
+      callbackRef.current = () => false;
+    };
+  }, [callback, deps]);
 
   React.useEffect(() => {
-    const _refElement = ref.current || document.documentElement
-    const _refElementsMultiple = elementRefs.current
+    const _refElement = ref.current || document.documentElement;
+    const _refElementsMultiple = elementRefs.current;
 
     const resizeObserver = new ResizeObserver(([entry]) => {
-      const {left, top, width, height} = entry.target.getBoundingClientRect()
-      const {pageXOffset, pageYOffset} = window
+      const { left, top, width, height } = entry.target.getBoundingClientRect();
+      const { pageXOffset, pageYOffset } = window;
 
       if (callbackRef) {
         if (_refElement === document.documentElement) {
-          return // no-op for document
+          return; // no-op for document
         } else {
           callbackRef.current({
             left: left + pageXOffset,
@@ -47,18 +47,18 @@ export function useMeasure(
             height,
             vLeft: left,
             vTop: top,
-          })
+          });
         }
       }
-    })
+    });
 
     const resizeObserverMultiple = new ResizeObserver((entries) => {
-      const left: Array<number> = []
-      const top: Array<number> = []
-      const width: Array<number> = []
-      const height: Array<number> = []
-      const vLeft: Array<number> = []
-      const vTop: Array<number> = []
+      const left: Array<number> = [];
+      const top: Array<number> = [];
+      const width: Array<number> = [];
+      const height: Array<number> = [];
+      const vLeft: Array<number> = [];
+      const vTop: Array<number> = [];
 
       entries.forEach((entry) => {
         const {
@@ -66,18 +66,18 @@ export function useMeasure(
           top: _top,
           width: _width,
           height: _height,
-        } = entry.target.getBoundingClientRect()
-        const {pageXOffset, pageYOffset} = window
-        const _pageLeft = _left + pageXOffset
-        const _pageTop = _top + pageYOffset
+        } = entry.target.getBoundingClientRect();
+        const { pageXOffset, pageYOffset } = window;
+        const _pageLeft = _left + pageXOffset;
+        const _pageTop = _top + pageYOffset;
 
-        left.push(_pageLeft)
-        top.push(_pageTop)
-        width.push(_width)
-        height.push(_height)
-        vLeft.push(_left)
-        vTop.push(_top)
-      })
+        left.push(_pageLeft);
+        top.push(_pageTop);
+        width.push(_width);
+        height.push(_height);
+        vLeft.push(_left);
+        vTop.push(_top);
+      });
 
       if (callbackRef) {
         callbackRef.current({
@@ -87,9 +87,9 @@ export function useMeasure(
           height,
           vLeft,
           vTop,
-        })
+        });
       }
-    })
+    });
 
     if (_refElement) {
       if (
@@ -97,10 +97,10 @@ export function useMeasure(
         _refElementsMultiple.length > 0
       ) {
         _refElementsMultiple.forEach((element: any) => {
-          resizeObserverMultiple.observe(element.current)
-        })
+          resizeObserverMultiple.observe(element.current);
+        });
       } else {
-        resizeObserver.observe(_refElement)
+        resizeObserver.observe(_refElement);
       }
     }
 
@@ -111,23 +111,23 @@ export function useMeasure(
           _refElementsMultiple.length > 0
         ) {
           _refElementsMultiple.forEach((element: any) => {
-            resizeObserverMultiple.unobserve(element.current)
-          })
+            resizeObserverMultiple.unobserve(element.current);
+          });
         } else {
-          resizeObserver.unobserve(_refElement)
+          resizeObserver.unobserve(_refElement);
         }
       }
-    }
-  }, [])
+    };
+  }, []);
 
   return (index?: number) => {
     if (index === null || index === undefined) {
-      return {ref}
+      return { ref };
     } else {
       elementRefs.current[index] =
-        elementRefs.current[index] || React.createRef()
+        elementRefs.current[index] || React.createRef();
 
-      return {ref: elementRefs.current[index]}
+      return { ref: elementRefs.current[index] };
     }
-  } // ...bind() or ...bind(index) for multiple
+  }; // ...bind() or ...bind(index) for multiple
 }

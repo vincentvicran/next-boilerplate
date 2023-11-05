@@ -1,37 +1,37 @@
-import * as React from 'react'
-import {attachEvents} from '../utils'
+import * as React from "react";
+import { attachEvents } from "../utils";
 
 // import { attachEvents } from "../gestures/eventAttacher";
 
 export function useOutsideClick(
   elementRef: React.RefObject<HTMLElement>,
   callback: (event: MouseEvent) => void,
-  deps?: React.DependencyList,
+  deps?: React.DependencyList
 ) {
-  const callbackRef = React.useRef<(event: MouseEvent) => void>()
+  const callbackRef = React.useRef<(event: MouseEvent) => void>();
 
   if (!callbackRef.current) {
-    callbackRef.current = callback
+    callbackRef.current = callback;
   }
 
   // Reinitiate callback when dependency change
   React.useEffect(() => {
-    callbackRef.current = callback
+    callbackRef.current = callback;
 
     return () => {
-      callbackRef.current = () => false
-    }
-  }, deps)
+      callbackRef.current = () => false;
+    };
+  }, [callback, deps]);
 
   React.useEffect(() => {
     const handleOutsideClick = (e: MouseEvent) => {
       if (!elementRef?.current?.contains(e.target as Element)) {
-        callbackRef.current && callbackRef.current(e)
+        callbackRef.current && callbackRef.current(e);
       }
-    }
+    };
 
-    const subscribe = attachEvents([document], [['click', handleOutsideClick]])
+    const subscribe = attachEvents([document], [["click", handleOutsideClick]]);
 
-    return () => subscribe && subscribe()
-  }, [])
+    return () => subscribe && subscribe();
+  }, [elementRef]);
 }

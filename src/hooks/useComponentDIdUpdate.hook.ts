@@ -1,11 +1,14 @@
-import {useEffect, useRef} from 'react'
-export const useComponentDidUpdate = (func: () => any, deps: any) => {
-  const firstUpdate = useRef(true)
+import { useEffect, useRef, DependencyList } from "react";
+export const useComponentDidUpdate = (
+  func: () => any,
+  deps: DependencyList
+) => {
+  const firstUpdate = useRef(true);
   useEffect(() => {
     if (firstUpdate.current) {
-      firstUpdate.current = false
-      return
+      firstUpdate.current = false;
+      return;
     }
-    func()
-  }, deps)
-}
+    func();
+  }, [func, deps]);
+};

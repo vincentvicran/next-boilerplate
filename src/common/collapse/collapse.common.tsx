@@ -1,19 +1,19 @@
-import {useRef, useState} from 'react'
-import {motion, AnimatePresence} from 'framer-motion'
+import { useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const Collapse = ({
   id,
   title,
   content,
-  iconVisible = true
+  iconVisible = true,
 }: Com.CollapseProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
   return (
     <>
       <motion.body
         className="collapse"
-        animate={{backgroundColor: isOpen ? '#f2f6ff' : '#fcfdff'}}
+        animate={{ backgroundColor: isOpen ? "#f2f6ff" : "#fcfdff" }}
         onClick={() => setIsOpen((prev) => !prev)}
       >
         <motion.header initial={false} className="collapse-headings">
@@ -24,7 +24,7 @@ export const Collapse = ({
                 src="/assets/images/faq-arrow.svg"
                 loading="lazy"
                 alt="down arrow"
-                className={`collapse-arrow ${isOpen ? 'open' : ''}`}
+                className={`collapse-arrow ${isOpen ? "open" : ""}`}
               />
             </div>
           )}
@@ -37,10 +37,10 @@ export const Collapse = ({
               animate="open"
               exit="collapsed"
               variants={{
-                open: {opacity: 1, height: 'auto', scale: 1},
-                collapsed: {opacity: 0, height: 0, scale: 0.9}
+                open: { opacity: 1, height: "auto", scale: 1 },
+                collapsed: { opacity: 0, height: 0, scale: 0.9 },
               }}
-              transition={{duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98]}}
+              transition={{ duration: 0.5, ease: [0.04, 0.62, 0.23, 0.98] }}
             >
               <div className="collapse-content">{content}</div>
             </motion.section>
@@ -48,22 +48,22 @@ export const Collapse = ({
         </AnimatePresence>
       </motion.body>
     </>
-  )
-}
+  );
+};
 
 export const CollapseOG = ({
   title,
   content,
-  iconVisible = true
+  iconVisible = true,
 }: Com.CollapseProps) => {
-  const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
 
-  const headingRef = useRef<HTMLDivElement>(null)
-  const contentRef = useRef<HTMLDivElement>(null)
+  const headingRef = useRef<HTMLDivElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
 
   return (
     <div
-      className={`collapse ${isOpen ? 'open' : ''}`}
+      className={`collapse ${isOpen ? "open" : ""}`}
       onClick={() => setIsOpen(!isOpen)}
     >
       <div className="collapse-headings" ref={headingRef}>
@@ -74,7 +74,7 @@ export const CollapseOG = ({
               src="/assets/images/faq-arrow.svg"
               loading="lazy"
               alt="down arrow"
-              className={`collapse-arrow ${isOpen ? 'open' : ''}`}
+              className={`collapse-arrow ${isOpen ? "open" : ""}`}
             />
           </div>
         )}
@@ -85,5 +85,5 @@ export const CollapseOG = ({
         </div>
       )}
     </div>
-  )
-}
+  );
+};

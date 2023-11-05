@@ -3,14 +3,17 @@ const path = require("path");
 module.exports = {
   extends: ["next/core-web-vitals"],
   ignorePatterns: ["**/*.d.ts"],
-  plugins: ["react", "import"],
+  plugins: ["react", "import", "@typescript-eslint"],
   rules: {
     "no-console": "warn",
     "no-useless-escape": "off",
-    "no-unused-vars": [
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
       "warn",
       {
         argsIgnorePattern: "^_",
+        varsIgnorePattern: "^_",
+        caughtErrorsIgnorePattern: "^_",
       },
     ],
     "import/order": [
@@ -50,7 +53,7 @@ module.exports = {
         amd: true,
       },
     ],
-    "import/named": "warn",
+    "import/named": "error",
     "import/namespace": "warn",
     "import/default": "warn",
     "import/export": "warn",
