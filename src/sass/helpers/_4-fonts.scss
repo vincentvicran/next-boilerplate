@@ -1,0 +1,159 @@
+// open type - SF Pro Display
+// @font-face {
+//   font-family: SFPD-Italic;
+//   src: url(/assets/fonts/SFProDisplay/SFPD-Black-Italic.OTF) format('opentype');
+// }
+
+// @font-face {
+//   font-family: SFPD-Bold;
+//   src: url(/assets/fonts/SFProDisplay/SFPD-Bold.OTF) format('opentype');
+// }
+
+// @font-face {
+//   font-family: SFPD-HeavyItalic;
+//   src: url(/assets/fonts/SFProDisplay/SFPD-Heavy-Italic.OTF) format('opentype');
+// }
+
+// @font-face {
+//   font-family: SFPD-LightItalic;
+//   src: url(/assets/fonts/SFProDisplay/SFPD-Light-Italic.OTF) format('opentype');
+// }
+
+// @font-face {
+//   font-family: SFPD-Medium;
+//   src: url(/assets/fonts/SFProDisplay/SFPD-Medium.OTF) format('opentype');
+// }
+
+// @font-face {
+//   font-family: SFPD-Regular;
+//   src: url(/assets/fonts/SFProDisplay/SFPD-Regular.OTF) format('opentype');
+// }
+
+// @font-face {
+//   font-family: SFPD-SemiBoldItalic;
+//   src: url(/assets/fonts/SFProDisplay/SFPD-SemiBold-Italic.OTF)
+//     format('opentype');
+// }
+
+// // true type - SF Pro Text
+// @font-face {
+//   font-family: SFPT-Bold;
+//   src: url(/assets/fonts/SFProText/SFPT-Bold.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-BoldItalic;
+//   src: url(/assets/fonts/SFProText/SFPT-BoldItalic.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-Heavy;
+//   src: url(/assets/fonts/SFProText/SFPT-Heavy.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-HeavyItalic;
+//   src: url(/assets/fonts/SFProText/SFPT-HeavyItalic.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-Light;
+//   src: url(/assets/fonts/SFProText/SFPT-Light.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-LightItalic;
+//   src: url(/assets/fonts/SFProText/SFPT-LightItalic.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-Medium;
+//   src: url(/assets/fonts/SFProText/SFPT-Medium.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-MediumItalic;
+//   src: url(/assets/fonts/SFProText/SFPT-MediumItalic.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-Regular;
+//   src: url(/assets/fonts/SFProText/SFPT-Regular.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-RegularItalic;
+//   src: url(/assets/fonts/SFProText/SFPT-RegularItalic.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-SemiBold;
+//   src: url(/assets/fonts/SFProText/SFPT-Semibold.ttf) format('truetype');
+// }
+
+// @font-face {
+//   font-family: SFPT-SemiBoldItalic;
+//   src: url(/assets/fonts/SFProText/SFPT-SemiboldItalic.ttf) format('truetype');
+// }
+
+//true type - Inter
+@font-face {
+  font-family: Inter-Thin;
+  src: url(/assets/fonts/Inter/Inter-Thin.ttf);
+}
+@font-face {
+  font-family: Inter-ExtraLight;
+  src: url(/assets/fonts/Inter/Inter-ExtraLight.ttf);
+}
+@font-face {
+  font-family: Inter-Light;
+  src: url(/assets/fonts/Inter/Inter-Light.ttf);
+}
+@font-face {
+  font-family: Inter-Regular;
+  src: url(/assets/fonts/Inter/Inter-Regular.ttf);
+}
+@font-face {
+  font-family: Inter-Medium;
+  src: url(/assets/fonts/Inter/Inter-Medium.ttf);
+}
+@font-face {
+  font-family: Inter-SemiBold;
+  src: url(/assets/fonts/Inter/Inter-SemiBold.ttf);
+}
+@font-face {
+  font-family: Inter-Bold;
+  src: url(/assets/fonts/Inter/Inter-Bold.ttf);
+}
+@font-face {
+  font-family: Inter-ExtraBold;
+  src: url(/assets/fonts/Inter/Inter-ExtraBold.ttf);
+}
+@font-face {
+  font-family: Inter-Black;
+  src: url(/assets/fonts/Inter/Inter-Black.ttf);
+}
+
+@font-face {
+  font-family: Lexend Deca;
+  src: url(/assets/fonts/Lexend-Deca/LexendDeca-VariableFont.ttf)
+    format('truetype-variations');
+  font-weight: 1 999;
+}
+
+@font-face {
+  font-family: DM Sans;
+  src: url(/assets/fonts/DM-Sans/DMSans-VariableFont.ttf)
+    format('truetype-variations');
+  font-weight: 1 999;
+}
+
+#root,
+body {
+  font-family: Lexend Deca;
+}
+
+textarea {
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  font-size: 14px;
+}

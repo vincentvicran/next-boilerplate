@@ -1,0 +1,68 @@
+.footer-react-container {
+  margin: 0 10%;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+
+  @include responsive-for(lg) {
+    margin: 0 8%;
+  }
+
+  @include responsive-for(md) {
+    margin: 0 5%;
+  }
+
+  & .footer-react {
+    @include flex(center, space-between);
+
+    @include responsive-for(lg) {
+      @include flex(flex-start, center, column);
+    }
+
+    &-logo {
+      & > img {
+        cursor: pointer;
+        width: 122px;
+        aspect-ratio: 3.81;
+        object-fit: contain;
+
+        @include responsive-for(lg) {
+          width: 150px;
+        }
+
+        @include responsive-for(md) {
+          width: 94px;
+        }
+      }
+    }
+
+    &-text {
+      color: #505167;
+      line-height: 28px;
+      font-size: 14px;
+    }
+
+    &-nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      @include responsive-for(lg) {
+        font-size: 12px !important;
+      }
+
+      &-text {
+        @extend .footer-react-text;
+        cursor: pointer;
+      }
+
+      &-social-icon {
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+  }
+}

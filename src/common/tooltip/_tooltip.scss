@@ -1,0 +1,22 @@
+//TOOLTIP COMMON
+.tooltip-wrapper {
+  position: relative;
+  .tooltip-text {
+    visibility: hidden;
+    position: absolute;
+    background-color: $black;
+    padding: 2px 8px;
+    border-radius: 5px;
+    color: $white;
+    text-align: center;
+    z-index: 1;
+    white-space: nowrap;
+    align-self: center;
+    font-size: map-get($fontSizes, 2);
+    transition: visibility 0.1s ease-in-out 0.1s;
+  }
+}
+
+.tooltip-wrapper:hover .tooltip-text {
+  visibility: visible;
+}

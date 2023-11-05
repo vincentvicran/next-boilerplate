@@ -1,0 +1,74 @@
+.collapse {
+  cursor: pointer;
+  padding: 2rem;
+  @include flex(flex-start, center, column);
+
+  background-color: #fcfdff;
+  border-radius: 20px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  @include responsive-for(lg) {
+    padding: 1.75rem;
+  }
+
+  @include responsive-for(md) {
+    padding: 1.5rem;
+  }
+
+  @include responsive-for(sm) {
+    padding: 1.25rem;
+  }
+
+  &:hover {
+    box-shadow: 0 2px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  &-headings {
+    @include flex(center, space-between);
+    width: 100%;
+    color: #222;
+    margin-bottom: 0;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
+
+    @include responsive-for(lg) {
+      font-size: 20px !important;
+    }
+
+    @include responsive-for(md) {
+      font-size: 18px !important;
+    }
+
+    @include responsive-for(sm) {
+      font-size: 16px !important;
+    }
+
+    & .collapse-icons {
+      @include flex();
+      width: 40px;
+      min-height: 40px;
+      user-select: none;
+
+      & .collapse-arrow {
+        width: 24px;
+        transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0deg)
+          rotateY(0) rotateZ(0) skew(0, 0);
+        transform-style: preserve-3d;
+        transition: transform 0.3s ease-in-out;
+
+        &.open {
+          transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(180deg)
+            rotateY(0deg) rotateZ(0deg) skew(0, 0);
+        }
+      }
+    }
+  }
+
+  &-content {
+    padding: 20px 0 0;
+    color: #475467;
+  }
+}

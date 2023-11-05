@@ -1,0 +1,67 @@
+.heading {
+  color: map-get($text, primary);
+  font-size: map-get($fontSizes, 5);
+  font-weight: map-get($fontWeights, bold);
+  text-transform: capitalize;
+  line-height: map-get($space, 6);
+  @include responsive-for(md) {
+    font-size: map-get($fontSizes, 4);
+  }
+  @include responsive-for(sm) {
+    font-size: map-get($fontSizes, 3);
+  }
+}
+.primaryHeading {
+  color: map-get($text, base);
+  font-size: map-get($fontSizes, 5);
+  font-weight: map-get($fontWeights, bold);
+  text-transform: capitalize;
+  line-height: map-get($space, 6);
+  @include responsive-for(md) {
+    font-size: map-get($fontSizes, 4);
+  }
+  @include responsive-for(sm) {
+    font-size: map-get($fontSizes, 3);
+  }
+}
+
+.pageheading {
+  font-size: map-get($fontSizes, 6);
+  line-height: map-get($space, 6);
+  font-weight: map-get($fontWeights, bold);
+  @include responsive-for(md) {
+    font-size: map-get($fontSizes, 5);
+  }
+  @include responsive-for(sm) {
+    font-size: map-get($fontSizes, 4);
+  }
+}
+
+.subheading {
+  font-size: map-get($fontSizes, 4);
+  line-height: map-get($space, 4);
+  font-weight: map-get($fontWeights, semibold);
+  @include responsive-for(md) {
+    font-size: map-get($fontSizes, 3);
+  }
+  @include responsive-for(sm) {
+    font-size: map-get($fontSizes, 2);
+  }
+}
+
+.smallheading {
+  font-size: map-get($fontSizes, 2);
+  line-height: map-get($space, 4);
+  font-weight: map-get($fontWeights, normal);
+  color: map-get($text, base);
+  @include responsive-for(md) {
+    font-size: map-get($fontSizes, 2);
+  }
+}
+
+.extrasmallheading {
+  font-size: map-get($fontSizes, 2);
+  line-height: map-get($space, 4);
+  font-weight: map-get($fontWeights, semibold);
+  color: $graylite;
+}

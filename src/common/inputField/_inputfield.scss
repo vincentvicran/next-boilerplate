@@ -1,0 +1,133 @@
+.input-field-container {
+  position: relative;
+  width: 100%;
+  & .password-icon {
+    position: absolute;
+    right: 10px;
+    top: 2px;
+    height: 90%;
+    color: map-get($text, 'secondary');
+    user-select: none;
+    cursor: pointer;
+    background: map-get($base, 'surface');
+  }
+
+  & .search-icon {
+    @extend .password-icon;
+    font-size: 18px;
+  }
+
+  & .input-error {
+    position: absolute;
+    width: 100%;
+    bottom: -16px;
+    left: 0;
+    color: map-get($base, 'critical');
+    font-size: 10px;
+    padding: 2px 0;
+  }
+}
+
+.inputfield {
+  position: relative;
+  width: 100%;
+  border-radius: map-get($radius, 'default');
+  border: 1px solid map-get($base, 'surface');
+  outline: none;
+  padding: 8px 12px;
+  background-color: map-get($base, 'surface');
+  color: map-get($text, 'primary');
+  transition: border 0.1s, background 0.1s;
+  resize: none;
+
+  &.line-item {
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+    padding: 0;
+    padding-bottom: 3px;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid map-get($border, 'secondary');
+  }
+
+  &::placeholder {
+    color: map-get($text, 'disabled');
+  }
+
+  &:hover {
+    border: 1px solid $primary100;
+    &.line-item {
+      border: none;
+      border-bottom: 1px solid $primary100;
+    }
+  }
+
+  &:focus {
+    outline-offset: 0px;
+    outline: none;
+    border: 1px solid $primary100;
+    &.line-item {
+      border: none;
+      border-bottom: 1px solid $primary100;
+    }
+  }
+
+  &.error {
+    border: 1px solid map-get($base, 'critical');
+    &.line-item {
+      border: none;
+      border-bottom: 1px solid map-get($base, 'critical');
+    }
+
+    &:focus {
+      border: 1px solid map-get($base, 'critical');
+      &.line-item {
+        border: none;
+        border-bottom: 1px solid map-get($base, 'critical');
+      }
+    }
+  }
+
+  &.disabled {
+    color: map-get($text, 'secondary');
+    &:hover {
+      cursor: not-allowed;
+      border: 1px solid map-get($text, 'disabled');
+      &.line-item {
+        border: none;
+        border-bottom: 1px solid map-get($text, 'disabled');
+      }
+    }
+  }
+
+  &.password {
+    padding-right: 16px;
+  }
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}
+
+input[type='datetime-local']::-webkit-calendar-picker-indicator {
+  background: transparent;
+  bottom: 0;
+  color: transparent;
+  cursor: pointer;
+  height: auto;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: auto;
+}

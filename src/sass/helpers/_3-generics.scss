@@ -1,0 +1,79 @@
+// Generics styles
+
+table {
+  border-collapse: collapse;
+}
+
+// @override SLICK DOTS
+.slick-dots {
+  li {
+    button:before {
+      color: $grey100;
+      font-size: 10px;
+    }
+
+    &.slick-active {
+      button:before {
+        color: $teal;
+      }
+    }
+  }
+}
+
+.ql-editor {
+  height: 200px;
+}
+
+._default-button {
+  background-color: $white !important;
+  color: $black200 !important;
+
+  transition: background-color 0.1s;
+  border: 1px solid $grey100;
+
+  &:hover {
+    background-color: darken($white, 10%) !important;
+  }
+}
+
+._primary-button {
+  background-color: $blue !important;
+  color: $white !important;
+
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: darken($blue, 10%) !important;
+  }
+}
+
+._success-button {
+  background-color: $green !important;
+  color: $white !important;
+
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: darken($green, 10%) !important;
+  }
+}
+
+._destroy-button {
+  background-color: $red !important;
+  color: $white !important;
+
+  transition: background-color 0.1s;
+
+  &:hover {
+    background-color: darken($red, 10%) !important;
+  }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Helvetica', 'Arial', sans-serif;
+}
