@@ -1,9 +1,17 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 
-import "./globals.css";
+import "src/sass/main.scss";
 
-const inter = Inter({ subsets: ["latin"] });
+// import { Inter } from "next/font/google";
+// const inter = Inter({ subsets: ["latin"] });
+
+import localFont from "next/font/local";
+
+// Font files can be colocated inside of `app`
+const myFont = localFont({
+  src: "../styles/fonts/DM-Sans/DMSans-VariableFont.ttf",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={myFont.className}>{children}</body>
     </html>
   );
 }
