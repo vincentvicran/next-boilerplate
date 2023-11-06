@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Loader } from "src/common";
 
 import "src/sass/main.scss";
 
@@ -25,7 +24,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Loader />
       <body className={myFont.className}>{children}</body>
     </html>
   );
